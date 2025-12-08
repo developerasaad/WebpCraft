@@ -12,16 +12,10 @@ export function Header() {
             <Container>
                 <nav className="flex items-center justify-between h-16">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2 group">
-                        <div className="w-8 h-8 bg-gradient-to-br from-accent to-indigo-600 rounded-md group-hover:scale-110 transition-transform duration-200"></div>
-                        <div className="flex flex-col">
-                            <span className="text-xl font-bold text-gray-900 leading-none">
-                                WebpCraft
-                            </span>
-                            <span className="text-[10px] text-softText leading-none">
-                                Craft Perfect Images
-                            </span>
-                        </div>
+                    <Link href="/" className="group">
+                        <span className="text-xl font-bold text-gray-900">
+                            WebpCraft
+                        </span>
                     </Link>
 
                     {/* Navigation */}
