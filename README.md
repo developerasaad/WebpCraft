@@ -47,6 +47,37 @@ npm run build
 
 Creates a static export in `/out` directory.
 
+## ☁️ Deployment
+
+### Vercel Configuration
+
+When deploying to Vercel, it's crucial to configure the build settings correctly to avoid issues with public folder files not copying properly:
+
+1. In your Vercel project dashboard, go to Settings → General → Build & Development Settings
+2. Ensure the "Output Directory" is set to `.` (root) or left empty
+3. **Do NOT set it to `out`** as this can cause public folder files to fail to copy, resulting in 404 errors
+
+Alternatively, you can use the included `vercel.json` file which explicitly sets the correct configuration:
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "outputDirectory": "."
+      }
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}
+```
+
 ## 📁 Project Structure
 
 ```
