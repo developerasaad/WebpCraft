@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/Card";
 import Link from "next/link";
 import type { Metadata } from "next";
 
+export const dynamic = 'force-static';
+
 export const metadata: Metadata = {
     title: "WebpCraft - Free Online WebP Converter | 100% Privacy | Open Source",
     description:
