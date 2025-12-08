@@ -1,0 +1,59 @@
+{
+    "name": "webpcraft",
+    "version": "1.0.0",
+    "description": "WebpCraft - Professional online WebP image converter with privacy-first, on-device processing. Open source by developerasaad.",
+    "private": false,
+    "license": "Apache-2.0",
+    "author": {
+        "name": "developerasaad",
+        "email": "developerasaad@users.noreply.github.com",
+        "url": "https://github.com/developerasaad"
+    },
+    "homepage": "https://webpcraft.vercel.app",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/developerasaad/WebpCraft.git"
+    },
+    "bugs": {
+        "url": "https://github.com/developerasaad/WebpCraft/issues"
+    },
+    "keywords": [
+        "webp",
+        "image-converter",
+        "privacy-first",
+        "client-side",
+        "bulk-converter",
+        "webp-converter",
+        "jpg-to-webp",
+        "png-to-webp",
+        "gif-to-webp",
+        "image-optimization",
+        "web-performance",
+        "nextjs",
+        "react",
+        "typescript",
+        "open-source"
+    ],
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "jszip": "^3.10.1",
+        "next": "^16.0.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "react-hot-toast": "^2.6.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.4.49",
+        "tailwindcss": "^3.4.15",
+        "typescript": "^5"
+    }
+}
