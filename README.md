@@ -62,21 +62,18 @@ Alternatively, you can use the included `vercel.json` file which explicitly sets
 ```json
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next",
-      "config": {
-        "outputDirectory": "."
-      }
-    }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
-  ]
+  "outputDirectory": ".",
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "installCommand": "npm install"
 }
 ```
+
+This configuration ensures that:
+- The static export is handled correctly
+- Public folder assets are properly copied
+- The routes manifest is generated correctly
+- No 404 errors occur for static assets
 
 ## 📁 Project Structure
 
