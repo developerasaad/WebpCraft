@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     title: "How to Convert JPG to WebP - Step by Step Guide",
     description:
         "Learn how to convert JPG images to WebP format online. Simple step-by-step guide with 100% on-device processing for complete privacy and security.",
+    alternates: {
+        canonical: "https://webpcraft.vercel.app/how-to/convert-jpg-to-webp",
+    },
     openGraph: {
         title: "How to Convert JPG to WebP - Step by Step Guide",
         description:

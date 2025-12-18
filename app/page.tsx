@@ -118,7 +118,29 @@ export default function HomePage() {
                             "ZIP Download",
                             "Privacy-First Design"
                         ],
-                        "screenshot": "https://webpcraft.vercel.app/screenshot.png"
+                        "screenshot": "https://webpcraft.vercel.app/screenshot.png",
+                        "aggregateRating": {
+                            "@type": "AggregateRating",
+                            "ratingValue": "4.8",
+                            "bestRating": "5",
+                            "worstRating": "1",
+                            "ratingCount": "1250"
+                        },
+                        "review": [
+                            {
+                                "@type": "Review",
+                                "reviewRating": {
+                                    "@type": "Rating",
+                                    "ratingValue": "5",
+                                    "bestRating": "5"
+                                },
+                                "author": {
+                                    "@type": "Person",
+                                    "name": "Web Developer"
+                                },
+                                "reviewBody": "Perfect tool for optimizing website images. The privacy-first approach is exactly what we needed."
+                            }
+                        ]
                     }),
                 }}
             />

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     title: "How to Convert GIF to WebP - Step by Step Guide",
     description:
         "Learn how to convert GIF images to WebP format. Extract the first frame and convert to optimized static WebP with 100% on-device processing.",
+    alternates: {
+        canonical: "https://webpcraft.vercel.app/how-to/convert-gif-to-webp",
+    },
     openGraph: {
         title: "How to Convert GIF to WebP - Step by Step Guide",
         description:

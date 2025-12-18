@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     title: "How to Convert PNG to WebP - Step by Step Guide",
     description:
         "Learn how to convert PNG images to WebP format while preserving transparency. Simple guide with 100% on-device processing for complete privacy.",
+    alternates: {
+        canonical: "https://webpcraft.vercel.app/how-to/convert-png-to-webp",
+    },
     openGraph: {
         title: "How to Convert PNG to WebP - Step by Step Guide",
         description:
