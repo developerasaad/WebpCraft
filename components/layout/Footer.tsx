@@ -108,7 +108,7 @@ export function Footer() {
                 {/* Bottom */}
                 <div className="mt-12 pt-8 border-t border-border">
                     <p className="text-sm text-softText text-center">
-                        © {new Date().getFullYear()} WebpCraft. Crafted with ❤️ for performance and privacy.
+                        © 2024 WebpCraft. Crafted with ❤️ for performance and privacy.
                     </p>
                 </div>
             </Container>
