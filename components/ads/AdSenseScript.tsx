@@ -26,7 +26,7 @@ export function AdSenseScript() {
         };
 
         script.onerror = () => {
-            console.warn('AdSense script failed to load');
+            // Silently fail
         };
 
         document.head.appendChild(script);

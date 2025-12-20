@@ -72,7 +72,6 @@ export function AdUnit({
                 setAdLoaded(true);
             }
         } catch (error) {
-            console.warn('AdSense ad failed to load:', error);
         }
     }, [isInView, adLoaded, isMounted]);
 
@@ -81,11 +80,8 @@ export function AdUnit({
     const isPlaceholder = clientId === 'ca-pub-XXXXXXXXXXXXXXXX' || clientId === 'ca-pub-YOUR-ACTUAL-ID-HERE';
 
     if (!isEnabled || !clientId || isPlaceholder || !slot) {
-        console.warn('AdUnit blocked:', { isEnabled, clientId, isPlaceholder, slot });
         return null;
     }
-
-    console.log('AdUnit rendering:', { clientId, slot, isMounted, isInView, adLoaded });
 
     if (!isMounted) {
         return (
