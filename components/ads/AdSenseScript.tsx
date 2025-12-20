@@ -1,26 +1,41 @@
 'use client';
 
-import Script from 'next/script';
+import { useEffect, useState } from 'react';
 
 export function AdSenseScript() {
+    const [scriptLoaded, setScriptLoaded] = useState(false);
     const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
     const isEnabled = process.env.NEXT_PUBLIC_ADSENSE_ENABLED === 'true';
 
-    // Don't render if AdSense is disabled or client ID is missing
-    if (!isEnabled || !clientId || clientId === 'ca-pub-XXXXXXXXXXXXXXXX') {
-        return null;
-    }
+    useEffect(() => {
+        // Don't load if AdSense is disabled or client ID is missing
+        if (!isEnabled || !clientId || clientId === 'ca-pub-XXXXXXXXXXXXXXXX' || scriptLoaded) {
+            return;
+        }
 
-    return (
-        <Script
-            id="adsense-script"
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-            onError={(e) => {
-                console.warn('AdSense script failed to load:', e);
-            }}
-        />
-    );
+        // Create and inject script manually to avoid Next.js data-nscript attribute
+        const script = document.createElement('script');
+        script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${clientId}`;
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+
+        script.onload = () => {
+            setScriptLoaded(true);
+        };
+
+        script.onerror = () => {
+            console.warn('AdSense script failed to load');
+        };
+
+        document.head.appendChild(script);
+
+        return () => {
+            // Cleanup on unmount
+            if (script.parentNode) {
+                script.parentNode.removeChild(script);
+            }
+        };
+    }, [clientId, isEnabled, scriptLoaded]);
+
+    return null;
 }
