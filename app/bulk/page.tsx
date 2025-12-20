@@ -1,6 +1,7 @@
 import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { BulkConverter } from "@/components/converter/BulkConverter";
+import { Card } from "@/components/ui/Card";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getBreadcrumbSchema, getArticleSchema } from "@/lib/schema";
@@ -144,6 +145,61 @@ export default function BulkPage() {
 
                         {/* Bulk Converter */}
                         <BulkConverter />
+
+                        {/* Related Pages - Internal Links */}
+                        <div className="mt-12 grid md:grid-cols-2 gap-6">
+                            <Card padding="lg" className="bg-accent/5">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                                    Need Help?
+                                </h3>
+                                <ul className="space-y-2">
+                                    <li>
+                                        <Link href="/faq" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Frequently Asked Questions
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/features" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            View All Features
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/webp-guide" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Complete WebP Guide
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </Card>
+
+                            <Card padding="lg" className="bg-accent/5">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                                    Learn More
+                                </h3>
+                                <ul className="space-y-2">
+                                    <li>
+                                        <Link href="/how-to/convert-jpg-to-webp" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            How to Convert JPG to WebP
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/how-to/convert-png-to-webp" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            How to Convert PNG to WebP
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Single Image Converter
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </Card>
+                        </div>
                     </div>
                 </Container>
             </Section>

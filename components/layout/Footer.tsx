@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "./Container";
+import { AdUnit } from "@/components/ads";
 
 export function Footer() {
     return (
@@ -105,8 +106,17 @@ export function Footer() {
                     </div>
                 </div>
 
+                {/* Ad Unit - Footer */}
+                <div className="mt-12">
+                    <AdUnit
+                        slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_FOOTER || ''}
+                        format="auto"
+                        className="mb-8"
+                    />
+                </div>
+
                 {/* Bottom */}
-                <div className="mt-12 pt-8 border-t border-border">
+                <div className="mt-8 pt-8 border-t border-border">
                     <p className="text-sm text-softText text-center">
                         © 2024 WebpCraft. Crafted with ❤️ for performance and privacy.
                     </p>

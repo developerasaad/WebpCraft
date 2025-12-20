@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { SingleImageConverter } from "@/components/converter/SingleImageConverter";
 import { TrustSignals } from "@/components/ui/TrustSignals";
 import { Card } from "@/components/ui/Card";
+import { AdUnit } from "@/components/ads";
 import Link from "next/link";
 import type { Metadata } from "next";
 import {
@@ -155,6 +156,15 @@ export default function HomePage() {
 
                         {/* Trust Signals */}
                         <TrustSignals />
+
+                        {/* Ad Unit - Below Tool Output */}
+                        <div className="mt-12">
+                            <AdUnit
+                                slot={process.env.NEXT_PUBLIC_ADSENSE_SLOT_BELOW_TOOL || ''}
+                                format="auto"
+                                responsive={true}
+                            />
+                        </div>
                     </div>
                 </Container>
             </Section>
@@ -605,6 +615,103 @@ export default function HomePage() {
                                 </div>
                             </div>
                         </Card>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* Explore More - Internal Links for SEO */}
+            <Section variant="gray" className="py-12">
+                <Container>
+                    <div className="max-w-4xl mx-auto">
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+                            Explore More
+                        </h2>
+                        <p className="text-base text-softText text-center mb-8">
+                            Discover all the features and resources WebpCraft has to offer
+                        </p>
+
+                        <div className="grid md:grid-cols-3 gap-6">
+                            {/* Tools */}
+                            <Card padding="lg">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-4">Conversion Tools</h3>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/bulk" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Bulk WebP Converter
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/features" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            All Features
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </Card>
+
+                            {/* Guides */}
+                            <Card padding="lg">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-4">How-To Guides</h3>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/how-to/convert-jpg-to-webp" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Convert JPG to WebP
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/how-to/convert-png-to-webp" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Convert PNG to WebP
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/how-to/convert-gif-to-webp" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Convert GIF to WebP
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/webp-guide" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Complete WebP Guide
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </Card>
+
+                            {/* Resources */}
+                            <Card padding="lg">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-4">Resources</h3>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/faq" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Frequently Asked Questions
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/about" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            About WebpCraft
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/resources" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Additional Resources
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/privacy" className="text-softText hover:text-accent transition-colors flex items-center">
+                                            <span className="mr-2">→</span>
+                                            Privacy Policy
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </Card>
+                        </div>
                     </div>
                 </Container>
             </Section>
