@@ -5,6 +5,13 @@ import { TrustSignals } from "@/components/ui/TrustSignals";
 import { Card } from "@/components/ui/Card";
 import Link from "next/link";
 import type { Metadata } from "next";
+import {
+    getWebApplicationSchema,
+    getHowToSchema,
+    getFAQSchema,
+    getArticleSchema,
+    getBreadcrumbSchema
+} from "@/lib/schema";
 
 export const dynamic = 'force-static';
 
@@ -14,7 +21,7 @@ export const metadata: Metadata = {
         "Convert JPG, PNG, and GIF to WebP format instantly with WebpCraft. 100% on-device processing guarantees your privacy. No file size limits, no uploads, completely free forever. Open source by developerasaad.",
     keywords: [
         "webp converter",
-        "convert to webp", 
+        "convert to webp",
         "jpg to webp",
         "png to webp",
         "open source webp converter",
@@ -73,119 +80,39 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+    // Generate comprehensive schema graph for homepage
+    const schemaGraph = {
+        "@context": "https://schema.org",
+        "@graph": [
+            getWebApplicationSchema(),
+            getHowToSchema(),
+            getFAQSchema(),
+            getArticleSchema({
+                headline: "Complete Guide to Converting Images to WebP Format",
+                description: "Learn how to convert JPG, PNG, and GIF images to WebP format for better web performance and faster loading times.",
+                url: "https://webpcraft.vercel.app",
+                datePublished: "2024-01-01",
+                dateModified: new Date().toISOString().split('T')[0],
+                keywords: [
+                    "webp conversion guide",
+                    "image optimization",
+                    "web performance",
+                    "webp tutorial"
+                ]
+            }),
+            getBreadcrumbSchema([
+                { name: "Home", url: "https://webpcraft.vercel.app" }
+            ])
+        ]
+    };
+
     return (
         <>
+            {/* Comprehensive Schema Graph for Homepage */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "SoftwareApplication",
-                        "name": "WebpCraft",
-                        "applicationCategory": "MultimediaApplication",
-                        "applicationSubCategory": "Image Converter",
-                        "operatingSystem": "Any",
-                        "description": "Professional WebP image converter with privacy-first on-device processing. Convert JPG, PNG, and GIF to WebP format instantly without uploading files.",
-                        "url": "https://webpcraft.vercel.app",
-                        "downloadUrl": "https://webpcraft.vercel.app",
-                        "softwareVersion": "1.0.0",
-                        "datePublished": "2024-01-01",
-                        "dateModified": "2024-12-08",
-                        "author": {
-                            "@type": "Organization",
-                            "name": "WebpCraft Team",
-                            "url": "https://webpcraft.vercel.app"
-                        },
-                        "publisher": {
-                            "@type": "Organization",
-                            "name": "WebpCraft",
-                            "url": "https://webpcraft.vercel.app"
-                        },
-                        "offers": {
-                            "@type": "Offer",
-                            "price": "0",
-                            "priceCurrency": "USD",
-                            "availability": "https://schema.org/InStock"
-                        },
-                        "featureList": [
-                            "Convert JPG/PNG to WebP",
-                            "Bulk Image Conversion", 
-                            "100% Client-Side Processing",
-                            "Offline Capability",
-                            "No File Size Limits",
-                            "Quality Control (1-100%)",
-                            "Image Resizing",
-                            "ZIP Download",
-                            "Privacy-First Design"
-                        ],
-                        "screenshot": "https://webpcraft.vercel.app/screenshot.png",
-                        "aggregateRating": {
-                            "@type": "AggregateRating",
-                            "ratingValue": "4.8",
-                            "bestRating": "5",
-                            "worstRating": "1",
-                            "ratingCount": "1250"
-                        },
-                        "review": [
-                            {
-                                "@type": "Review",
-                                "reviewRating": {
-                                    "@type": "Rating",
-                                    "ratingValue": "5",
-                                    "bestRating": "5"
-                                },
-                                "author": {
-                                    "@type": "Person",
-                                    "name": "Web Developer"
-                                },
-                                "reviewBody": "Perfect tool for optimizing website images. The privacy-first approach is exactly what we needed."
-                            }
-                        ]
-                    }),
-                }}
-            />
-            
-            {/* Additional SEO Schema for FAQ and How-to */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "TechArticle",
-                        "headline": "Complete Guide to Converting Images to WebP Format",
-                        "description": "Learn how to convert JPG, PNG, and GIF images to WebP format for better web performance and faster loading times.",
-                        "author": {
-                            "@type": "Organization",
-                            "name": "WebpCraft Team"
-                        },
-                        "publisher": {
-                            "@type": "Organization", 
-                            "name": "WebpCraft"
-                        },
-                        "datePublished": "2024-12-08",
-                        "dateModified": "2024-12-08",
-                        "mainEntity": {
-                            "@type": "FAQPage",
-                            "mainEntity": [
-                                {
-                                    "@type": "Question",
-                                    "name": "What is WebP format and why should I use it?",
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": "WebP is a modern image format developed by Google that provides superior compression compared to JPEG and PNG. It typically results in 25-35% smaller file sizes while maintaining the same visual quality, making it ideal for web performance optimization."
-                                    }
-                                },
-                                {
-                                    "@type": "Question", 
-                                    "name": "Is WebpCraft safe to use with sensitive images?",
-                                    "acceptedAnswer": {
-                                        "@type": "Answer",
-                                        "text": "Yes, WebpCraft is completely safe for sensitive images. All processing happens locally in your browser using JavaScript and Canvas API. Your images are never uploaded to any server, ensuring complete privacy and security."
-                                    }
-                                }
-                            ]
-                        }
-                    }),
+                    __html: JSON.stringify(schemaGraph),
                 }}
             />
             {/* Compact Hero + Converter Section */}
@@ -368,12 +295,12 @@ export default function HomePage() {
                                 <p className="text-sm text-softText mb-4">
                                     Optimize website performance by converting images to WebP format. Reduce page load times, improve Core Web Vitals scores, and enhance user experience across all devices.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">E-commerce Businesses</h3>
                                 <p className="text-sm text-softText mb-4">
                                     Faster product images mean higher conversion rates. WebpCraft helps online stores reduce bandwidth costs while maintaining image quality.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Content Creators & Bloggers</h3>
                                 <p className="text-sm text-softText">
                                     Compress images for faster blog loading, social media sharing, and better SEO rankings without sacrificing visual quality.
@@ -384,12 +311,12 @@ export default function HomePage() {
                                 <p className="text-sm text-softText mb-4">
                                     Batch convert client images for campaigns, landing pages, and social media. Improve ad performance with faster-loading creative assets.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Privacy-Conscious Users</h3>
                                 <p className="text-sm text-softText mb-4">
                                     Anyone concerned about data privacy who needs image conversion without uploading sensitive images to third-party servers.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Small Business Owners</h3>
                                 <p className="text-sm text-softText">
                                     Professional image optimization without expensive software subscriptions or technical expertise.
@@ -515,7 +442,7 @@ export default function HomePage() {
                         </div>
                         <div className="text-center mt-8">
                             <p className="text-base text-softText">
-                                <strong>Technical Details:</strong> WebpCraft uses the Canvas API and modern JavaScript to convert images directly in your browser. 
+                                <strong>Technical Details:</strong> WebpCraft uses the Canvas API and modern JavaScript to convert images directly in your browser.
                                 No server processing, no data transmission, just pure client-side optimization using the same technology that powers modern web browsers.
                             </p>
                         </div>
@@ -536,12 +463,12 @@ export default function HomePage() {
                                 <p className="text-sm text-softText mb-4">
                                     Online stores using WebpCraft report 30-40% faster product page load times, leading to improved conversion rates and better Google Shopping performance.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">📝 Blog & Content Sites</h3>
                                 <p className="text-sm text-softText mb-4">
                                     Content creators reduce bandwidth costs by 25-35% while improving page speed scores, directly impacting SEO rankings and reader engagement.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">🎨 Design Agencies</h3>
                                 <p className="text-sm text-softText mb-4">
                                     Agencies deliver optimized assets to clients faster, reducing project timelines and client hosting costs while maintaining visual quality.
@@ -552,12 +479,12 @@ export default function HomePage() {
                                 <p className="text-sm text-softText mb-4">
                                     App developers reduce APK sizes and improve in-app image loading speeds, leading to better user retention and app store ratings.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">🏢 Enterprise Websites</h3>
                                 <p className="text-sm text-softText mb-4">
                                     Large organizations save significantly on CDN costs and server bandwidth while improving global site performance for international users.
                                 </p>
-                                
+
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">🎓 Educational Platforms</h3>
                                 <p className="text-sm text-softText">
                                     Schools and online courses improve learning experiences with faster-loading educational content, especially important for students with limited bandwidth.

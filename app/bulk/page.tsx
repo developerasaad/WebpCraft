@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { BulkConverter } from "@/components/converter/BulkConverter";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getBreadcrumbSchema, getArticleSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
     title: "Bulk WebP Converter - Convert Unlimited Images | WebpCraft Batch Tool",
@@ -43,8 +44,71 @@ export const metadata: Metadata = {
 };
 
 export default function BulkPage() {
+    // Schema for bulk converter page
+    const schemaGraph = {
+        "@context": "https://schema.org",
+        "@graph": [
+            getArticleSchema({
+                headline: "Bulk WebP Converter - Convert Multiple Images at Once",
+                description: "Learn how to batch convert multiple images to WebP format using WebpCraft's bulk converter with queue-based processing.",
+                url: "https://webpcraft.vercel.app/bulk",
+                datePublished: "2024-01-01",
+                dateModified: new Date().toISOString().split('T')[0],
+                keywords: [
+                    "bulk webp conversion",
+                    "batch image processing",
+                    "multiple image converter",
+                    "queue based conversion"
+                ]
+            }),
+            getBreadcrumbSchema([
+                { name: "Home", url: "https://webpcraft.vercel.app" },
+                { name: "Bulk Converter", url: "https://webpcraft.vercel.app/bulk" }
+            ]),
+            {
+                "@type": "HowTo",
+                "name": "How to Bulk Convert Images to WebP",
+                "description": "Step-by-step guide to batch convert multiple images to WebP format",
+                "totalTime": "PT5M",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "position": 1,
+                        "name": "Select Multiple Images",
+                        "text": "Drag and drop multiple JPG, PNG, or GIF files into the bulk converter area, or click to select files from your device."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "position": 2,
+                        "name": "Configure Settings",
+                        "text": "Set quality and resize options that will apply to all images. Each image will be processed with these settings."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "position": 3,
+                        "name": "Monitor Progress",
+                        "text": "Watch individual progress bars for each image as they are converted in queue-based processing."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "position": 4,
+                        "name": "Download Results",
+                        "text": "Download all converted images as a single ZIP file or download individual images as needed."
+                    }
+                ]
+            }
+        ]
+    };
+
     return (
         <>
+            {/* Schema for Bulk Converter Page */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(schemaGraph),
+                }}
+            />
             <Section className="pt-12 pb-8">
                 <Container>
                     <div className="max-w-5xl mx-auto">

@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { Card } from "@/components/ui/Card";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getBreadcrumbSchema, getArticleSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
     title: "WebpCraft FAQ - Common Questions Answered",
@@ -92,24 +93,47 @@ export default function FAQPage() {
         },
     ];
 
-    const jsonLd = {
+    // Comprehensive schema for FAQ page
+    const schemaGraph = {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map(faq => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-            }
-        }))
+        "@graph": [
+            {
+                "@type": "FAQPage",
+                "mainEntity": faqs.map(faq => ({
+                    "@type": "Question",
+                    "name": faq.question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.answer
+                    }
+                }))
+            },
+            getArticleSchema({
+                headline: "WebpCraft FAQ - Frequently Asked Questions",
+                description: "Comprehensive answers to common questions about WebP conversion, privacy, browser support, and image optimization.",
+                url: "https://webpcraft.vercel.app/faq",
+                datePublished: "2024-01-01",
+                dateModified: new Date().toISOString().split('T')[0],
+                keywords: [
+                    "webp faq",
+                    "image converter questions",
+                    "webp conversion help",
+                    "privacy questions"
+                ]
+            }),
+            getBreadcrumbSchema([
+                { name: "Home", url: "https://webpcraft.vercel.app" },
+                { name: "FAQ", url: "https://webpcraft.vercel.app/faq" }
+            ])
+        ]
     };
 
     return (
         <>
+            {/* Comprehensive FAQ Schema */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
             />
             <Section className="pt-20">
                 <Container>

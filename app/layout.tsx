@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { getOrganizationSchema, getWebSiteSchema, getSoftwareSourceCodeSchema } from "@/lib/schema";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -78,29 +79,24 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    // Generate comprehensive schema graph for global context
+    const schemaGraph = {
+        "@context": "https://schema.org",
+        "@graph": [
+            getOrganizationSchema(),
+            getWebSiteSchema(),
+            getSoftwareSourceCodeSchema()
+        ]
+    };
+
     return (
         <html lang="en">
             <body className={inter.className}>
+                {/* Global Schema - Organization, WebSite, and Open Source */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "Organization",
-                            "name": "WebpCraft",
-                            "url": "https://webpcraft.vercel.app",
-                            "logo": "https://webpcraft.vercel.app/logo.png",
-                            "description": "Professional WebP image converter with privacy-first on-device processing. Open source project by developerasaad.",
-                            "founder": {
-                                "@type": "Person",
-                                "name": "developerasaad",
-                                "url": "https://github.com/developerasaad"
-                            },
-                            "sameAs": [
-                                "https://github.com/developerasaad/WebpCraft",
-                                "https://twitter.com/developerasaad"
-                            ]
-                        }),
+                        __html: JSON.stringify(schemaGraph),
                     }}
                 />
                 <div className="flex flex-col min-h-screen">

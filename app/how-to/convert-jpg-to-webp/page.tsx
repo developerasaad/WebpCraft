@@ -3,6 +3,7 @@ import { Section } from "@/components/layout/Section";
 import { Card } from "@/components/ui/Card";
 import Link from "next/link";
 import type { Metadata } from "next";
+import { getBreadcrumbSchema, getArticleSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
     title: "How to Convert JPG to WebP - Step by Step Guide",
@@ -20,59 +21,96 @@ export const metadata: Metadata = {
 };
 
 export default function ConvertJpgToWebpPage() {
-    const jsonLd = {
+    // Comprehensive schema for JPG to WebP guide
+    const schemaGraph = {
         "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": "How to Convert JPG to WebP",
-        "description": "Follow these simple steps to convert your JPG images to WebP format using WebpCraft's privacy-first on-device converter.",
-        "image": "https://webpcraft.vercel.app/og.png",
-        "totalTime": "PT1M",
-        "estimatedCost": {
-            "@type": "MonetaryAmount",
-            "currency": "USD",
-            "value": "0"
-        },
-        "step": [
+        "@graph": [
             {
-                "@type": "HowToStep",
-                "name": "Select Your JPG Images",
-                "text": "Click the 'Choose Files' button or drag and drop your JPG images directly onto the dropzone. You can select multiple files at once for batch conversion.",
-                "position": 1,
-                "image": "https://webpcraft.vercel.app/og.png"
+                "@type": "HowTo",
+                "name": "How to Convert JPG to WebP",
+                "description": "Follow these simple steps to convert your JPG images to WebP format using WebpCraft's privacy-first on-device converter.",
+                "image": "https://webpcraft.vercel.app/og.png",
+                "totalTime": "PT1M",
+                "estimatedCost": {
+                    "@type": "MonetaryAmount",
+                    "currency": "USD",
+                    "value": "0"
+                },
+                "tool": [
+                    {
+                        "@type": "HowToTool",
+                        "name": "WebpCraft Converter"
+                    }
+                ],
+                "supply": [
+                    {
+                        "@type": "HowToSupply",
+                        "name": "JPG images"
+                    }
+                ],
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "name": "Select Your JPG Images",
+                        "text": "Click the 'Choose Files' button or drag and drop your JPG images directly onto the dropzone. You can select multiple files at once for batch conversion.",
+                        "position": 1,
+                        "image": "https://webpcraft.vercel.app/og.png"
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Adjust Quality Settings",
+                        "text": "Use the quality slider to set your desired compression level (1-100%). We recommend 90% for the best balance between file size and image quality.",
+                        "position": 2
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Resize (Optional)",
+                        "text": "If you want to resize your images, enter custom dimensions or click a preset size. The aspect ratio lock ensures your images don't get distorted.",
+                        "position": 3
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Convert to WebP",
+                        "text": "Click the 'Convert to WebP' button. The conversion happens instantly in your browser. You'll see a preview of the converted image and compression statistics.",
+                        "position": 4
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Download Your WebP Files",
+                        "text": "Click the 'Download' button to save your converted WebP images. If you converted multiple files, use 'Download All' to get them all at once.",
+                        "position": 5
+                    }
+                ]
             },
-            {
-                "@type": "HowToStep",
-                "name": "Adjust Quality Settings",
-                "text": "Use the quality slider to set your desired compression level (1-100%). We recommend 90% for the best balance between file size and image quality.",
-                "position": 2
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Resize (Optional)",
-                "text": "If you want to resize your images, enter custom dimensions or click a preset size. The aspect ratio lock ensures your images don't get distorted.",
-                "position": 3
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Convert to WebP",
-                "text": "Click the 'Convert to WebP' button. The conversion happens instantly in your browser. You'll see a preview of the converted image and compression statistics.",
-                "position": 4
-            },
-            {
-                "@type": "HowToStep",
-                "name": "Download Your WebP Files",
-                "text": "Click the 'Download' button to save your converted WebP images. If you converted multiple files, use 'Download All' to get them all at once.",
-                "position": 5
-            }
+            getArticleSchema({
+                headline: "How to Convert JPG to WebP - Complete Guide",
+                description: "Comprehensive step-by-step guide on converting JPG images to WebP format for better web performance and smaller file sizes.",
+                url: "https://webpcraft.vercel.app/how-to/convert-jpg-to-webp",
+                datePublished: "2024-01-01",
+                dateModified: new Date().toISOString().split('T')[0],
+                keywords: [
+                    "jpg to webp",
+                    "convert jpg to webp",
+                    "jpg webp converter",
+                    "image optimization"
+                ]
+            }),
+            getBreadcrumbSchema([
+                { name: "Home", url: "https://webpcraft.vercel.app" },
+                { name: "How To", url: "https://webpcraft.vercel.app/how-to" },
+                { name: "Convert JPG to WebP", url: "https://webpcraft.vercel.app/how-to/convert-jpg-to-webp" }
+            ])
         ]
     };
 
     return (
         <>
+            {/* Comprehensive Schema for JPG to WebP Guide */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaGraph) }}
             />
+
 
             <Section className="pt-20">
                 <Container>
