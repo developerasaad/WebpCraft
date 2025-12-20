@@ -77,9 +77,15 @@ export function AdUnit({
     }, [isInView, adLoaded, isMounted]);
 
     // NOW we can do conditional returns (after all hooks)
-    if (!isEnabled || !clientId || clientId === 'ca-pub-XXXXXXXXXXXXXXXX' || !slot) {
+    // Don't render if disabled, no client ID, or using placeholder
+    const isPlaceholder = clientId === 'ca-pub-XXXXXXXXXXXXXXXX' || clientId === 'ca-pub-YOUR-ACTUAL-ID-HERE';
+
+    if (!isEnabled || !clientId || isPlaceholder || !slot) {
+        console.warn('AdUnit blocked:', { isEnabled, clientId, isPlaceholder, slot });
         return null;
     }
+
+    console.log('AdUnit rendering:', { clientId, slot, isMounted, isInView, adLoaded });
 
     if (!isMounted) {
         return (

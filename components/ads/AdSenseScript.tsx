@@ -8,8 +8,10 @@ export function AdSenseScript() {
     const isEnabled = process.env.NEXT_PUBLIC_ADSENSE_ENABLED === 'true';
 
     useEffect(() => {
-        // Don't load if AdSense is disabled or client ID is missing
-        if (!isEnabled || !clientId || clientId === 'ca-pub-XXXXXXXXXXXXXXXX' || scriptLoaded) {
+        // Don't load if AdSense is disabled or client ID is missing or placeholder
+        const isPlaceholder = clientId === 'ca-pub-XXXXXXXXXXXXXXXX' || clientId === 'ca-pub-YOUR-ACTUAL-ID-HERE';
+
+        if (!isEnabled || !clientId || isPlaceholder || scriptLoaded) {
             return;
         }
 
