@@ -1,0 +1,36 @@
+{
+    "name": "WebpCraft",
+    "short_name": "WebpCraft",
+    "description": "Professional WebP image converter with 100% on-device processing. Convert JPG, PNG, and GIF to WebP format instantly with complete privacy.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#6366f1",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "productivity",
+        "utilities",
+        "photo"
+    ],
+    "screenshots": [
+        {
+            "src": "/og.png",
+            "sizes": "1200x630",
+            "type": "image/png"
+        }
+    ]
+}
