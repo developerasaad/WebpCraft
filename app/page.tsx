@@ -6,65 +6,77 @@ import { Card } from "@/components/ui/Card";
 import { AdUnit } from "@/components/ads";
 import Link from "next/link";
 import type { Metadata } from "next";
-import {
-    getWebApplicationSchema,
-    getHowToSchema,
-    getFAQSchema,
-    getArticleSchema,
-    getBreadcrumbSchema
-} from "@/lib/schema";
 
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-    title: "WebpCraft - Free Online WebP Converter | 100% Privacy | Open Source",
+    title: "WebP Image Converter Online — Free, Secure, On-Device",
     description:
-        "Convert JPG, PNG, and GIF to WebP format instantly with WebpCraft. 100% on-device processing guarantees your privacy. No file size limits, no uploads, completely free forever. Open source by developerasaad.",
+        "Convert JPG, PNG, GIF to WebP instantly on your browser — no upload, fully private, unlimited and free. Bulk WebP converter with 100% on-device processing for faster websites & SEO.",
     keywords: [
-        "webp converter",
-        "convert to webp",
-        "jpg to webp",
-        "png to webp",
+        // Primary Core Keywords
+        "webp image converter",
+        "convert images to webp",
+        "webp converter online",
+        "free webp converter",
+        "webp image optimizer",
+        // Long-tail High-Intent Keywords
+        "bulk webp converter no upload",
+        "online webp converter 100% free no limit",
+        "convert jpg png gif to webp offline",
+        "secure on-device webp conversion",
+        "image converter without uploading files",
+        "privacy first image optimization tool",
+        // Format-Specific
+        "jpg to webp converter",
+        "png to webp converter",
+        "gif to webp converter",
+        "webp bulk image converter",
+        "bulk jpg to webp",
+        "convert png to webp online",
+        // SEO & Performance Focus
+        "webp image optimization for seo",
+        "how to reduce image size for core web vitals",
+        "webp vs jpeg for site speed",
+        "image optimization for seo",
+        "reduce image size for web",
+        "webp for faster websites",
+        "improve core web vitals with webp",
+        "optimize images for seo",
+        // Privacy & Security
+        "on-device image converter",
+        "client-side webp converter",
+        "no upload image converter",
+        "browser only image converter",
+        "secure image conversion",
+        "privacy first webp tool",
+        // Use-Case Keywords
+        "webp converter for e-commerce",
+        "best webp tool for bloggers",
+        "image compression without upload",
+        "webp for web developers",
+        "seo image optimization tool",
+        // Additional variants
         "open source webp converter",
         "developerasaad webp tool",
         "github webp converter",
-        "privacy first converter",
         "client side image processing",
         "bulk webp converter",
-        "free webp converter",
         "webp optimization tool",
         "image compression webp",
         "web performance optimization",
-        "core web vitals improvement",
         "website speed optimization",
         "image format converter",
         "browser based converter",
-        "no upload converter",
-        "offline image converter",
-        "gif to webp",
-        "bulk image converter",
-        "privacy first converter",
-        "offline converter",
-        "free webp converter",
-        "online image converter",
-        "webp optimization",
-        "image compression",
-        "reduce image size",
-        "web performance",
-        "core web vitals",
-        "website speed optimization",
-        "image format converter",
-        "browser based converter",
-        "no upload converter",
-        "client side image processing"
+        "offline image converter"
     ],
     alternates: {
         canonical: "https://webpcraft.vercel.app",
     },
     openGraph: {
-        title: "WebpCraft - Free Online WebP Converter | 100% Privacy | Open Source",
+        title: "WebP Image Converter Online — Free, Secure, On-Device",
         description:
-            "Convert JPG, PNG, and GIF to WebP format instantly. 100% on-device processing, unlimited bulk conversion, and complete privacy. Open source by developerasaad.",
+            "Convert JPG, PNG, GIF to WebP instantly on your browser. No upload, fully private, unlimited conversions. Best online WebP converter for SEO and web performance.",
         url: "https://webpcraft.vercel.app",
         images: ["/og.png"],
         type: "website",
@@ -72,50 +84,19 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "WebpCraft - Free Online WebP Converter | Open Source",
+        title: "WebP Image Converter — Free, Secure, On-Device",
         description:
-            "Convert images to WebP instantly with 100% on-device processing. No uploads, no limits, completely free. Open source by developerasaad.",
+            "Convert JPG, PNG, GIF to WebP instantly. No uploads, 100% browser-based processing. Privacy-first image optimization for faster websites.",
         images: ["/og.png"],
         creator: "@developerasaad"
     }
 };
 
 export default function HomePage() {
-    // Generate comprehensive schema graph for homepage
-    const schemaGraph = {
-        "@context": "https://schema.org",
-        "@graph": [
-            getWebApplicationSchema(),
-            getHowToSchema(),
-            getFAQSchema(),
-            getArticleSchema({
-                headline: "Complete Guide to Converting Images to WebP Format",
-                description: "Learn how to convert JPG, PNG, and GIF images to WebP format for better web performance and faster loading times.",
-                url: "https://webpcraft.vercel.app",
-                datePublished: "2024-01-01",
-                dateModified: new Date().toISOString().split('T')[0],
-                keywords: [
-                    "webp conversion guide",
-                    "image optimization",
-                    "web performance",
-                    "webp tutorial"
-                ]
-            }),
-            getBreadcrumbSchema([
-                { name: "Home", url: "https://webpcraft.vercel.app" }
-            ])
-        ]
-    };
-
     return (
         <>
-            {/* Comprehensive Schema Graph for Homepage */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(schemaGraph),
-                }}
-            />
+
+
             {/* Compact Hero + Converter Section */}
             <Section className="pt-12 pb-8">
                 <Container>
@@ -123,11 +104,11 @@ export default function HomePage() {
                         {/* Compact Hero */}
                         <div className="text-center mb-8">
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 leading-tight">
-                                Convert Images to WebP{" "}
-                                <span className="text-accent">Instantly</span>
+                                WebP Image Converter Online{" "}
+                                <span className="text-accent">— Free, Secure, On-Device</span>
                             </h1>
                             <p className="text-base md:text-lg text-softText mb-3">
-                                100% on-device processing • No uploads • Complete privacy
+                                Convert JPG, PNG, GIF to WebP instantly • No upload • 100% privacy • Unlimited & free
                             </p>
 
                             {/* Mode Switcher */}
@@ -169,6 +150,58 @@ export default function HomePage() {
                 </Container>
             </Section>
 
+            {/* New SEO Content Section - Keyword Rich */}
+            <Section className="py-12">
+                <Container>
+                    <div className="max-w-4xl mx-auto">
+                        <div className="prose prose-lg mx-auto">
+                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
+                                Best WebP Converter for SEO & Web Performance
+                            </h2>
+
+                            <div className="grid md:grid-cols-2 gap-8 mb-8">
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-3">🎯 What is a WebP Image Converter?</h3>
+                                    <p className="text-sm text-softText mb-4">
+                                        A WebP image converter is a tool that transforms JPG, PNG, and GIF images into the modern WebP format. WebpCraft is a <strong>free online WebP converter</strong> that processes images 100% on-device, ensuring your privacy while delivering professional-grade optimization for faster websites.
+                                    </p>
+
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-3">⚡ Why Use WebP for Your Website?</h3>
+                                    <p className="text-sm text-softText">
+                                        Converting to WebP format reduces image file sizes by 25-35% compared to JPEG and PNG without compromising visual quality. This directly improves <strong>Core Web Vitals</strong>, page load speed, and SEO rankings. Faster websites rank higher on Google and provide better user experience.
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-3">🔒 Privacy-First Image Conversion</h3>
+                                    <p className="text-sm text-softText mb-4">
+                                        Unlike traditional online converters that upload your images to remote servers, WebpCraft performs <strong>100% client-side conversion</strong>. Your images never leave your browser, making it the most secure option for converting sensitive photos, business assets, or personal content.
+                                    </p>
+
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-3">📦 Bulk WebP Converter with No Limits</h3>
+                                    <p className="text-sm text-softText">
+                                        Convert hundreds of images at once with our <strong>bulk WebP converter</strong>. No file size restrictions, no daily limits, no watermarks. Perfect for e-commerce stores, bloggers, and agencies who need to optimize large image libraries quickly.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Long-tail keyword section */}
+                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                                <h3 className="text-lg font-semibold text-blue-900 mb-3">💡 Common Search Queries We Solve:</h3>
+                                <ul className="grid md:grid-cols-2 gap-2 text-sm text-blue-800">
+                                    <li>✓ How to convert JPG to WebP online free?</li>
+                                    <li>✓ Best PNG to WebP converter without upload?</li>
+                                    <li>✓ Bulk image converter for WebP format?</li>
+                                    <li>✓ How to reduce image size for Core Web Vitals?</li>
+                                    <li>✓ Secure image conversion without cloud upload?</li>
+                                    <li>✓ WebP vs JPEG for website speed optimization?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
             {/* What is WebpCraft Section - SEO Content */}
             <Section variant="gray" className="py-12">
                 <Container>
@@ -196,10 +229,10 @@ export default function HomePage() {
                 <Container>
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 text-center">
-                            Why WebP? The Future of Web Images
+                            Why Convert Images to WebP?
                         </h2>
                         <p className="text-base text-softText text-center mb-8">
-                            Google developed WebP to replace JPEG, PNG, and GIF with superior compression and quality
+                            WebP format reduces image size by 25-35% compared to JPEG and PNG — improving website speed and SEO
                         </p>
                     </div>
                 </Container>
@@ -297,7 +330,7 @@ export default function HomePage() {
                 <Container>
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-                            Who is WebpCraft For?
+                            WebP for Faster Websites & SEO
                         </h2>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
@@ -342,7 +375,7 @@ export default function HomePage() {
                 <Container>
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-                            What Problems Does WebpCraft Solve?
+                            Privacy-First WebP Conversion
                         </h2>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div>
@@ -405,7 +438,7 @@ export default function HomePage() {
                 <Container>
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-                            How Does WebpCraft Work?
+                            Convert Images in Bulk — No Upload Required
                         </h2>
                         <div className="grid md:grid-cols-3 gap-6">
                             <Card>

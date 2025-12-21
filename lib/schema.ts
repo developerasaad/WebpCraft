@@ -69,7 +69,7 @@ export function getWebSiteSchema() {
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: SITE_NAME,
-        description: "Convert JPG, PNG, and GIF images to WebP format instantly with 100% privacy protection.",
+        description: "Convert JPG, PNG, GIF images to WebP format online — free, secure, on-device. Best WebP converter for SEO and faster websites.",
         publisher: {
             "@id": `${SITE_URL}/#organization`
         },
@@ -95,7 +95,7 @@ export function getWebApplicationSchema() {
         applicationSubCategory: "Image Converter",
         operatingSystem: "Any (Web Browser)",
         browserRequirements: "Requires JavaScript. Modern browser with Canvas API support.",
-        description: "Professional WebP image converter with privacy-first on-device processing. Convert JPG, PNG, and GIF to WebP format instantly without uploading files.",
+        description: "Free online WebP image converter with 100% on-device processing. Convert JPG, PNG, GIF to WebP format instantly without uploading files. Privacy-first bulk converter for faster websites and SEO optimization.",
         offers: {
             "@type": "Offer",
             price: "0",
@@ -222,8 +222,8 @@ export function getHowToSchema() {
     return {
         "@context": "https://schema.org",
         "@type": "HowTo",
-        name: "How to Convert Images to WebP Format",
-        description: "Step-by-step guide to convert JPG, PNG, and GIF images to WebP format using WebpCraft",
+        name: "How to Convert JPG, PNG, GIF to WebP Format Online",
+        description: "Complete step-by-step guide to convert images to WebP format using WebpCraft's free online converter. No upload required, 100% privacy guaranteed.",
         image: OG_IMAGE,
         totalTime: "PT2M",
         estimatedCost: {
